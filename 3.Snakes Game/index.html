@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+
+    <title>Snake's Game</title>
+</head>
+
+<body>
+
+    <!-- Just an image -->
+    <nav class="navbar navbar-expand-lg navbar-dark " id="navbar">
+        <a class="navbar-brand" href="#">
+            <img src="Rt.jpg" width="100" height="60" alt="" loading="lazy"><span>RITIK TANWAR</span>
+        </a>
+        <span class="navbar-text" style="position: absolute; right:  5rem;">
+            <h1>Snakes Game</h1>
+        </span>
+    </nav>
+    <div class=" container">
+        <div id="scoring">
+            <!-- <img src="apple.png" class="apple"> -->
+            <img src="trophy.png" class="trophy" id="trophy">
+            <span id="scores"></span>
+            <!-- <span id="hscores"></span> -->
+        </div>
+        <canvas id="myCanvas"> </canvas>
+        <a href="#" class="butt" id="butt">Start Game</a>
+        <a href="#" class="butt2" id="butt2">Play Again</a>
+        <script type="text/javascript">
+            const btns = document.querySelectorAll('a');
+            console.log(btns);
+            btns.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    let x = e.clientX - e.target.offsetLeft;
+                    let y = e.clientY - e.target.offsetTop;
+                    let ripples = document.createElement('span');
+                    ripples.setAttribute('id', 'span2');
+                    ripples.style.left = x + 'px';
+                    ripples.style.top = y + 'px';
+                    this.appendChild(ripples);
+                    setTimeout(() => {
+                        ripples.remove();
+                    }, 1000);
+                })
+            });
+        </script>
+    </div>
+    <!-- <script src="index.js"></script> -->
+    <script src="snake.js"></script>
+</body>
+
+</html>
